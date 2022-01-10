@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/constants.dart';
 
-
 class NewsCard extends StatelessWidget {
-  const NewsCard({
-    Key? key,
-    required this.image,
-  }) : super(key: key);
+  const NewsCard({Key? key, required this.image, this.showName = true})
+      : super(key: key);
 
   final String image;
+  final bool showName;
 
   @override
   Widget build(BuildContext context) {
@@ -17,22 +15,24 @@ class NewsCard extends StatelessWidget {
         Row(
           children: [
             ClipRRect(
-               borderRadius: BorderRadius.circular(8.0),
-               child: Image.network(
-               image,
-               height: 120,
-               width: 120,
+              borderRadius: BorderRadius.circular(15),
+              child: Image.network(
+                image,
+                height: 120,
+                width: 120,
+                fit: BoxFit.cover,
               ),
-           ),
+            ),
             const SizedBox(width: defaultPadding),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Euronews",
-                    style: Theme.of(context).textTheme.caption,
-                  ),
+                  if (showName)
+                    Text(
+                      "Euronews",
+                      style: Theme.of(context).textTheme.caption,
+                    ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         vertical: defaultPadding / 2),
@@ -42,7 +42,7 @@ class NewsCard extends StatelessWidget {
                     ),
                   ),
                   Row(
-                    children: const [
+                    children: [
                       Text(
                         "Politics",
                         style: TextStyle(color: kPrimaryColor),

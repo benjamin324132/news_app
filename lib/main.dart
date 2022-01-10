@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/screens/home/home_screen.dart';
-import 'package:news_app/screens/spash/splash_screen.dart';
+import 'package:news_app/screens/spash/spash1/spash_screen.dart';
 import 'package:news_app/theme.dart';
 
 void main() {
@@ -17,8 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'News App',
       theme: theme(),
-      home:  SplashScreen(),
+      home: SplashScreen1(),
     );
   }
 }
-

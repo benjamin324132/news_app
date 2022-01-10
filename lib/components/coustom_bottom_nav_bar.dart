@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/screens/bookmark/bookmark_screen.dart';
+import 'package:news_app/screens/categories/categories_screen.dart';
+import 'package:news_app/screens/profile/profile_screen.dart';
 import '../constants.dart';
 import '../enums.dart';
 
@@ -14,7 +17,7 @@ class CustomBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final Color inActiveIconColor = const Color(0xFFB6B6B6);
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 14),
+      padding: const EdgeInsets.symmetric(vertical: defaultPadding / 2),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -46,7 +49,10 @@ class CustomBottomNavBar extends StatelessWidget {
                       ? kPrimaryColor
                       : inActiveIconColor,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => CategoriesScreen()));
+                },
               ),
               IconButton(
                 icon: Icon(
@@ -55,7 +61,10 @@ class CustomBottomNavBar extends StatelessWidget {
                       ? kPrimaryColor
                       : inActiveIconColor,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => BookmarkScreen()));
+                },
               ),
               IconButton(
                 icon: Icon(
@@ -64,7 +73,10 @@ class CustomBottomNavBar extends StatelessWidget {
                       ? kPrimaryColor
                       : inActiveIconColor,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => ProfileScreen()));
+                },
               ),
             ],
           )),
